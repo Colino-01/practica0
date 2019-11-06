@@ -1,0 +1,261 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 6.0.7.3 (Linux)"/>
+	<meta name="created" content="2019-11-06T17:13:30.829548053"/>
+	<meta name="changed" content="2019-11-06T16:43:57.467957221"/>
+	<style type="text/css">
+		@page { margin: 0.79in }
+		p { margin-bottom: 0.1in; line-height: 115% }
+		a:link { so-language: zxx }
+	</style>
+</head>
+<body lang="es-ES" dir="ltr">
+<p style="margin-bottom: 0in; line-height: 100%"><font face="sans-serif"><font size="3" style="font-size: 12pt">1.Diferencias
+entre Sistema de control de versiones locales, centralizados y
+distribuidos</font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font face="sans-serif"><font size="3" style="font-size: 12pt">Centalizados:</font></font><font face="sans-serif"><font size="3" style="font-size: 12pt">Cuando
+se desarrollaron los sistemas de control de versiones, muchos de
+ellos se hicieron en esquema cliente-servidor, con lo que el
+desarrollo de las herramientas está claramente diferenciado entre:</font></font></p>
+<ul>
+	<p style="margin-bottom: 0in"></p>
+	<li/>
+<p style="margin-bottom: 0in"><strong><font face="Sans serif, sans-serif"><font size="2" style="font-size: 10pt">el
+	cliente</font></font></strong><font face="Sans serif, sans-serif"><font size="2" style="font-size: 10pt">,
+	que es la aplicación que se conecta al servidor y mantiene una
+	copia local del repositorio, así como se encarga, generalmente de
+	la corrección de conflictos y la mayoría de lógica del sistema. </font></font>
+	</p>
+	<li/>
+<p><strong><font face="Sans serif, sans-serif"><font size="2" style="font-size: 10pt">el
+	servidor</font></font></strong><font face="Sans serif, sans-serif"><font size="2" style="font-size: 10pt">,
+	que es el sistema que toma los datos del cliente y los almacena a
+	espera de una o múltiples peticiones de esos datos. Este sistema se
+	encargaría del almacenamiento de las versiones, control de
+	concurrencia, bloqueos y otras características parecidas a las de
+	las bases de datos. </font></font>
+	</p>
+</ul>
+<p><font face="Sans serif, sans-serif"><font size="2" style="font-size: 10pt">¿Qué
+limitaciones y características posee? Haremos una breve lista:</font></font></p>
+<ul>
+	<li/>
+<p style="margin-bottom: 0in"><font face="Sans serif, sans-serif"><font size="2" style="font-size: 10pt">El
+	sistema servidor es un repositorio, como los que mantienen los
+	clientes, pero perfectamente sincronizado y sin que dé lugar a
+	conflictos. Es la copia maestra de los datos. </font></font>
+	</p>
+	<li/>
+<p style="margin-bottom: 0in"><font face="Sans serif, sans-serif"><font size="2" style="font-size: 10pt">Cuando
+	un sistema web quiere hacer un listado, puede tomar los datos de
+	este servidor y siempre serán </font></font><em><font face="Sans serif, sans-serif"><font size="2" style="font-size: 10pt">seguros</font></font></em><font face="Sans serif, sans-serif"><font size="2" style="font-size: 10pt">,
+	con lo que no tendrá que resolver conflictos, ni tendrá que hacer
+	</font></font><em><font face="Sans serif, sans-serif"><font size="2" style="font-size: 10pt">mezclas</font></font></em><font face="Sans serif, sans-serif"><font size="2" style="font-size: 10pt">.
+	</font></font>
+	</p>
+	<li/>
+<p style="margin-bottom: 0in"><font face="Sans serif, sans-serif"><font size="2" style="font-size: 10pt">Una
+	copia local debe de poder mezclarse con el repositorio central
+	cuando queramos </font></font><em><font face="Sans serif, sans-serif"><font size="2" style="font-size: 10pt">publicar</font></font></em><font face="Sans serif, sans-serif"><font size="2" style="font-size: 10pt">
+	un conjunto de cambios o cuando queramos tomar la última versión
+	publicada en concordancia con nuestra copia local. </font></font>
+	</p>
+	<li/>
+<p><font face="Sans serif, sans-serif"><font size="2" style="font-size: 10pt">Es
+	normal ver en muchos de estos sistemas ramificaciones, versiones,
+	etiquetas, o similares, a modo de tener varias copias según nos
+	interese. Estas ramificaciones están en el servidor y en algunos
+	casos puede llegar a ser muy costosa su diferenciación. </font></font>
+	</p>
+</ul>
+<p><font face="Sans serif, sans-serif"><font size="3" style="font-size: 12pt">Distribudo:
+</font></font><font face="Sans serif, sans-serif"><font size="3" style="font-size: 12pt">Desarrolladores
+como Linus Torvalds, Eric S. Raymond y otros más, han desarrollado
+sistemas distribuidos de control de versiones tales como git,
+Baazaar, Mercurial, darcs, … estos sistemas se destacan por haber
+sido desarrollados en un formato distribuido, esto quiere decir que,
+en sí, no hay un servidor que mantenga una copia del repositorio,
+sino que está mantenida entre los clientes que estén en uso del
+repositorio y, al igual que los clientes P2P, mientras más
+desarrolladores haya conectados, mejor conectividad habrá entre
+todos.</font></font></p>
+<p><font face="Sans serif, sans-serif"><font size="2" style="font-size: 10pt">Esto
+da una serie de ventajas al sistema centralizado, como son:</font></font></p>
+<ul>
+	<li/>
+<p style="margin-bottom: 0in"><font face="Sans serif, sans-serif"><font size="2" style="font-size: 10pt">Disponer
+	de forma distribuida de la información del repositorio al completo,
+	tanto de forma local, como a través de los demás componentes del
+	grupo. </font></font>
+	</p>
+	<li/>
+<p style="margin-bottom: 0in"><font face="Sans serif, sans-serif"><font size="2" style="font-size: 10pt">Cada
+	cambio se va replicando entre los demás equipos distribuidos, a
+	modo de que puedan emplear esos datos y actualizarlos en sus
+	sistemas. </font></font>
+	</p>
+	<li/>
+<p style="margin-bottom: 0in"><font face="Sans serif, sans-serif"><font size="2" style="font-size: 10pt">El
+	sistema de control de versiones distribuido ha sido pensado con la
+	forma de trabajo basada en ramas, unión central en una sola versión
+	(</font></font><em><font face="Sans serif, sans-serif"><font size="2" style="font-size: 10pt">trunk</font></font></em><font face="Sans serif, sans-serif"><font size="2" style="font-size: 10pt">)
+	y liberaciones (o </font></font><em><font face="Sans serif, sans-serif"><font size="2" style="font-size: 10pt">tags</font></font></em><font face="Sans serif, sans-serif"><font size="2" style="font-size: 10pt">).
+	Con lo que cada rama puede identificarse como cada copia distribuida
+	que se use. </font></font>
+	</p>
+	<li/>
+<p><font face="Sans serif, sans-serif"><font size="2" style="font-size: 10pt">Una
+	máquina servidora puede emplearse, al estar siempre conectada, como
+	otro punto de sincronización, con la ventaja de que, aunque cayera,
+	mientras haya más miembros conectados, el sistema siempre se
+	mantiene activo y con buen ancho de banda. </font></font>
+	</p>
+</ul>
+<p><br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font face="sans-serif"><font size="3" style="font-size: 12pt">2.Qué
+es GitHub y cuáles son sus utilidades</font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%"><font face="sans-serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">GitHub
+es una plataforma de </span></font></font><strong><font face="sans-serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">desarrollo
+colaborativo de software</span></font></font></strong><font face="sans-serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">
+para alojar proyectos utilizando el sistema de control de versiones
+</span></font></font><font face="sans-serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">Git</span></font></font><font face="sans-serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">.</span></font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%"><font face="sans-serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">GitHub
+aloja tu repositorio de código y te brinda </span></font></font><strong><font face="sans-serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">herramientas</span></font></font></strong><font face="sans-serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">
+muy útiles para el </span></font></font><strong><font face="sans-serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">trabajo
+en equipo</span></font></font></strong><font face="sans-serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">,
+dentro de un proyecto.Además de eso, puedes </span></font></font><strong><font face="sans-serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">contribuir
+a mejorar el software de los demás</span></font></font></strong><font face="sans-serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">.
+Para poder alcanzar esta meta, GitHub provee de funcionalidades para
+hacer un </span></font></font><strong><font face="sans-serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">fork</span></font></font></strong><font face="sans-serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">
+y solicitar </span></font></font><strong><font face="sans-serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">pulls</span></font></font></strong><font face="sans-serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">.Realizar
+un </span></font></font><strong><font face="sans-serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">fork</span></font></font></strong><font face="sans-serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">
+es simplemente </span></font></font><strong><font face="sans-serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">clonar
+un repositorio ajeno</span></font></font></strong><font face="sans-serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">
+(genera una copia en tu cuenta), </span></font></font><strong><font face="sans-serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">para
+eliminar algún bug o modificar cosas de él</span></font></font></strong><font face="sans-serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">.
+Una vez realizadas tus modificaciones puedes enviar un </span></font></font><strong><font face="sans-serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">pull</span></font></font></strong><font face="sans-serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">
+al dueño del proyecto. Éste </span></font></font><strong><font face="sans-serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">podrá
+analizar los cambios</span></font></font></strong><font face="sans-serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">
+que has realizado fácilmente, </span></font></font><strong><font face="sans-serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">y</span></font></font></strong><font face="sans-serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">
+si considera interesante tu contribución, </span></font></font><strong><font face="sans-serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">adjuntarlo
+con el repositorio original</span></font></font></strong><font face="sans-serif"><font size="3" style="font-size: 12pt"><span style="font-weight: normal">.</span></font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font face="sans-serif"><font size="3" style="font-size: 12pt">3.Si
+aún no lo has hecho regístrate en la plataforma GitHub</font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%"><font face="sans-serif"><font size="3" style="font-size: 12pt">4.Crea
+un repositorio nuevo: practica0</font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%"><img src="index_html_542ea4b34aefcd5a.png" name="Image3" align="left" width="643" height="361" border="0"/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font face="sans-serif"><font size="3" style="font-size: 12pt">5.Realiza
+la configuración inicial de Git en tu ordenador.</font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%"><font face="sans-serif"><font size="3" style="font-size: 12pt">Sudoapt-get
+install git</font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%"><font face="sans-serif"><font size="3" style="font-size: 12pt">git
+config --global user.name “Tu_nombre</font></font>”</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font face="sans-serif"><font size="3" style="font-size: 12pt">git
+config --global user.email <a href="mailto:micorreo@correo.es">micorreo@correo.es</a></font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><img src="index_html_a7cddb1f85e179df.png" name="Image2" align="left" width="643" height="361" border="0"/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font face="sans-serif"><font size="3" style="font-size: 12pt">6.Conecto
+mi repositorio local con el repositorio remote:Crea un directorio de
+trabajo en tu PC </font></font>“<font face="sans-serif"><font size="3" style="font-size: 12pt">practicasgit”
+dentro de tu directorio home.</font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%"><font face="sans-serif"><font size="3" style="font-size: 12pt">cd
+practicasgit</font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%"><font face="sans-serif"><font size="3" style="font-size: 12pt">git
+init (intro)</font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%"><font face="sans-serif"><font size="3" style="font-size: 12pt">git
+remote add origin &lt;dirección server:
+(git@github.com:tulogin/turepositorio.git)&gt; </font></font>
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><img src="index_html_a7cddb1f85e179df.png" name="Image1" align="left" width="555" height="312" border="0"/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font face="sans-serif"><font size="3" style="font-size: 12pt">7.Añade
+el fichero index.html a tu directorio de trabajo</font></font>“<font face="sans-serif"><font size="3" style="font-size: 12pt">practicasgit</font></font>”</p>
+<p style="margin-bottom: 0in; line-height: 100%"><br/>
+
+</p>
+<p style="margin-bottom: 0in; line-height: 100%"><font face="sans-serif"><font size="3" style="font-size: 12pt">8.Mostrar
+el estado del directorio de trabajo con git status y luego git status
+</font></font>–<font face="sans-serif"><font size="3" style="font-size: 12pt">s</font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%"><font face="sans-serif"><font size="3" style="font-size: 12pt">9.Añade
+con git add .el archivo index.html al stage</font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%"><font face="sans-serif"><font size="3" style="font-size: 12pt">10.Añadeal
+fichero index.html la etiquetametacon tu nombre y apellidos en
+contenty otra que describa su contenido </font></font>“<font face="sans-serif"><font size="3" style="font-size: 12pt">Introducción
+a Git”</font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%"><font face="sans-serif"><font size="3" style="font-size: 12pt">11.Comprueba
+de nuevo el estado</font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%"><font face="sans-serif"><font size="3" style="font-size: 12pt">12.Compruebalas
+diferenciaso modificacionescon git diff</font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%"><font face="sans-serif"><font size="3" style="font-size: 12pt">13.Muestrael
+estado del directorio de trabajo con git status y luego git status </font></font>–<font face="sans-serif"><font size="3" style="font-size: 12pt">s</font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%"><font face="sans-serif"><font size="3" style="font-size: 12pt">14.Añadecon
+gitadd . el archivo index.html al índiceo stage</font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%"><font face="sans-serif"><font size="3" style="font-size: 12pt">15.Repitemostrar
+el estado del directorio de trabajo con git status y luego git status
+</font></font>–<font face="sans-serif"><font size="3" style="font-size: 12pt">s</font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%"><font face="sans-serif"><font size="3" style="font-size: 12pt">16.Diferencias
+entre git diff y git diff –cached</font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%"><font face="sans-serif"><font size="3" style="font-size: 12pt">17.Crear
+commit con git commit </font></font>–<font face="sans-serif"><font size="3" style="font-size: 12pt">m
+</font></font>“<font face="sans-serif"><font size="3" style="font-size: 12pt">mi
+primer commit”</font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%"><font face="sans-serif"><font size="3" style="font-size: 12pt">18.Hacer
+git log y git log </font></font>–<font face="sans-serif"><font size="3" style="font-size: 12pt">oneline</font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%"><font face="sans-serif"><font size="3" style="font-size: 12pt">19.git
+push </font></font>–<font face="sans-serif"><font size="3" style="font-size: 12pt">u
+origin master(para enviar mis cambios de mi copia local a mi
+repositorio remoto)</font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%"><font face="sans-serif"><font size="3" style="font-size: 12pt">20.Crear
+un archivoREADME.md(ReTex) que contenga “Primer documento html para
+github”</font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%"><font face="sans-serif"><font size="3" style="font-size: 12pt">21.Mostrar
+el estado del directorio de trabajo con git status y con git diff</font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%"><font face="sans-serif"><font size="3" style="font-size: 12pt">22.Registrar
+los cambios con git add .</font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%"><font face="sans-serif"><font size="3" style="font-size: 12pt">23.Crear
+commitcon commit </font></font>–<font face="sans-serif"><font size="3" style="font-size: 12pt">m
+</font></font>“<font face="sans-serif"><font size="3" style="font-size: 12pt">mi
+segundo commit”</font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%"><font face="sans-serif"><font size="3" style="font-size: 12pt">24.git
+log o git log </font></font>–<font face="sans-serif"><font size="3" style="font-size: 12pt">online</font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%"><font face="sans-serif"><font size="3" style="font-size: 12pt">25.git
+status</font></font></p>
+<p style="margin-bottom: 0in; line-height: 100%"><font face="sans-serif"><font size="3" style="font-size: 12pt">26.git
+push </font></font>–<font face="sans-serif"><font size="3" style="font-size: 12pt">u
+origin ma</font></font><font face="sans-serif"><font size="3" style="font-size: 12pt">ster</font></font></p>
+</body>
+</html>
